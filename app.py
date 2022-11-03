@@ -11,21 +11,23 @@ import numpy as np
 from PIL import Image
 
 model = Sequential()
-classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
+
 
 def model_training():
-    (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
-    global classes
-    x_train = x_train.reshape(60000, 784)
+    global model
     
+    (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
+    x_train = x_train.reshape(60000, 784)
     # Векторизованные операции
     # Применяются к каждому элементу массива отдельно
     x_train = x_train / 255 
     y_train = utils.to_categorical(y_train, 10)
     
+    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
+    
     # Создаем последовательную модель
     #model = Sequential()
-    global model
+    
     
     # Входной полносвязный слой, 800 нейронов, 784 входа в каждый нейрон
     model.add(Dense(800, input_dim=784, activation="relu"))
