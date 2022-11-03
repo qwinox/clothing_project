@@ -32,9 +32,6 @@ model.add(Dense(800, input_dim=784, activation="relu"))
 model.add(Dense(10, activation="softmax"))
 model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 
-
-
-    
 def preprocess_image(img):
     img = img.resize((28, 28))
     img = img.convert('L')
