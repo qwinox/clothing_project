@@ -36,6 +36,8 @@ def model_training():
                         validation_split=0.2,
                         verbose=1)
     model.save('fashion_mnist_dense.h5')
+    
+    return model
 
 
 def preprocess_image(img):
