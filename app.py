@@ -32,7 +32,7 @@ def model_training():
 
     history = model.fit(x_train, y_train, 
                         batch_size=200, 
-                        epochs=100,
+                        epochs=10,
                         validation_split=0.2,
                         verbose=1)
     model.save('fashion_mnist_dense.h5')
