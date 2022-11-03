@@ -71,8 +71,8 @@ if training:
                     validation_split=1,
                     verbose=1)
     model.save('fashion_mnist_dense.h5')
-    scores = model.evaluate(x_test, y_test, verbose=1)
-    st.write("Доля верных ответов на тестовых данных, в процентах:" +  str(round(scores[1] * 100, 4)))
+    #scores = model.evaluate(x_test, y_test, verbose=1)
+    #st.write("Доля верных ответов на тестовых данных, в процентах:" +  str(round(scores[1] * 100, 4)))
     
 img = load_image()
 result = st.button('Распознать изображение')
