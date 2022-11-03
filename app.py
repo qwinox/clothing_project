@@ -24,20 +24,21 @@ def model_training():
     
     # Создаем последовательную модель
     #model = Sequential()
+    global model
     
     # Входной полносвязный слой, 800 нейронов, 784 входа в каждый нейрон
-    global model.add(Dense(800, input_dim=784, activation="relu"))
+    model.add(Dense(800, input_dim=784, activation="relu"))
     
     # Выходной полносвязный слой, 10 нейронов (по количеству типов одежды)
-    global model.add(Dense(10, activation="softmax"))
-    global model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
+    model.add(Dense(10, activation="softmax"))
+    model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 
-    global history = model.fit(x_train, y_train, 
+    history = model.fit(x_train, y_train, 
                         batch_size=200, 
                         epochs=10,
                         validation_split=0.2,
                         verbose=1)
-    global model.save('fashion_mnist_dense.h5')
+    model.save('fashion_mnist_dense.h5')
     
     #return model
 
