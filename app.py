@@ -11,11 +11,11 @@ import numpy as np
 from PIL import Image
 
 model = Sequential()
+classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
 
 def model_training():
     (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
     global classes
-    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     x_train = x_train.reshape(60000, 784)
     
     # Векторизованные операции
