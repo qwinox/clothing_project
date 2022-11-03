@@ -69,10 +69,10 @@ def load_image():
         return None
     
 def print_predictions(preds):
-    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
+    class = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     preds = np.argmax(preds)
     st.write(preds)
-    st.write(classes[preds])
+    st.write(class[preds])
 
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
