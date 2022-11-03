@@ -70,7 +70,7 @@ def print_predictions(preds):
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
 if training:
-    model_training()
+    model_ready = model_training()
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
