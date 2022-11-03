@@ -10,6 +10,8 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
+model = Sequential()
+
 def model_training():
     (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
     classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
@@ -21,23 +23,23 @@ def model_training():
     y_train = utils.to_categorical(y_train, 10)
     
     # Создаем последовательную модель
-    model = Sequential()
+    #model = Sequential()
     
     # Входной полносвязный слой, 800 нейронов, 784 входа в каждый нейрон
-    model.add(Dense(800, input_dim=784, activation="relu"))
+    global model.add(Dense(800, input_dim=784, activation="relu"))
     
     # Выходной полносвязный слой, 10 нейронов (по количеству типов одежды)
-    model.add(Dense(10, activation="softmax"))
-    model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
+    global model.add(Dense(10, activation="softmax"))
+    global model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accuracy"])
 
-    history = model.fit(x_train, y_train, 
+    global history = model.fit(x_train, y_train, 
                         batch_size=200, 
                         epochs=10,
                         validation_split=0.2,
                         verbose=1)
-    model.save('fashion_mnist_dense.h5')
+    global model.save('fashion_mnist_dense.h5')
     
-    return model
+    #return model
 
 
 def preprocess_image(img):
@@ -70,11 +72,13 @@ def print_predictions(preds):
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
 if training:
-    model_ready = model_training()
+    #model_ready = model_training()
+    
+    model_training()
 img = load_image()
 result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
-    preds = model_ready.predict(x)
+    preds = model.predict(x)
     st.write('**Результаты распознавания:**')
     print_predictions(preds)
