@@ -35,6 +35,7 @@ model.compile(loss="categorical_crossentropy", optimizer="SGD", metrics=["accura
 def preprocess_image(img):
     img = img.resize((28, 28))
     img = img.convert('L')
+    st.image(img)
     x = image.img_to_array(img)
     # Меняем форму массива в плоский вектор
     x = x.reshape(1, 784)
