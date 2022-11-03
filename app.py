@@ -10,7 +10,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
-classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
+
 model = Sequential()
 
 
@@ -29,6 +29,7 @@ def model_training():
     # Создаем последовательную моделья
     #model = Sequential()
     
+    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     
     # Входной полносвязный слой, 800 нейронов, 784 входа в каждый нейрон
     model.add(Dense(800, input_dim=784, activation="relu"))
