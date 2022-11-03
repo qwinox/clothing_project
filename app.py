@@ -68,7 +68,7 @@ if training:
     history = model.fit(x_train, y_train, 
                     batch_size=200, 
                     epochs=100,
-                    validation_split=1,
+                    validation_split=0.2,
                     verbose=1)
     model.save('fashion_mnist_dense.h5')
     #scores = model.evaluate(x_test, y_test, verbose=1)
