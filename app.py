@@ -10,12 +10,13 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
+classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
 model = Sequential()
 
 
 def model_training():
     global model
-    
+    global classes
     (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
     x_train = x_train.reshape(60000, 784)
     # Векторизованные операции
@@ -23,7 +24,7 @@ def model_training():
     x_train = x_train / 255 
     y_train = utils.to_categorical(y_train, 10)
     
-    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
+    
     
     # Создаем последовательную моделья
     #model = Sequential()
@@ -69,10 +70,9 @@ def load_image():
         return None
     
 def print_predictions(preds):
-    class = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     preds = np.argmax(preds)
     st.write(preds)
-    st.write(class[preds])
+    st.write(classes[preds])
 
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
