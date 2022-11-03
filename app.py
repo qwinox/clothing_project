@@ -25,7 +25,7 @@ def model_training():
     
     classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     
-    # Создаем последовательную модель
+    # Создаем последовательную моделья
     #model = Sequential()
     
     
@@ -69,6 +69,7 @@ def load_image():
         return None
     
 def print_predictions(preds):
+    classes = ['футболка', 'брюки', 'свитер', 'платье', 'пальто', 'туфли', 'рубашка', 'кроссовки', 'сумка', 'ботинки']
     preds = np.argmax(preds)
     st.write(preds)
     st.write(classes[preds])
