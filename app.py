@@ -72,7 +72,7 @@ def load_image():
 def print_predictions(preds):
     preds = np.argmax(preds)
     st.write(preds[0])
-    st.write(classes[preds[0])
+    st.write(classes[preds[0]])
 
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
