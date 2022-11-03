@@ -10,10 +10,6 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
-
-
-
-
 (x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
 x_train = x_train.reshape(60000, 784)
 # Векторизованные операции
@@ -68,7 +64,7 @@ training = st.button('Обучить сеть')
 if training:
     history = model.fit(x_train, y_train, 
                     batch_size=200, 
-                    epochs=10,
+                    epochs=50,
                     validation_split=0.2,
                     verbose=1)
     model.save('fashion_mnist_dense.h5')
