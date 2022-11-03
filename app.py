@@ -60,8 +60,8 @@ def load_image():
     
 def print_predictions(preds):
     preds = np.argmax(preds)
-    st.write(preds)
-    st.write(classes[preds])
+    st.write( "Номер категории" + preds)
+    st.write("Название категории" + classes[preds])
 
 st.title('Распознавание одежды на изображениях')
 training = st.button('Обучить сеть')
@@ -78,6 +78,5 @@ result = st.button('Распознать изображение')
 if result:
     x = preprocess_image(img)
     preds = model.predict(x)
-    st.write(preds)
     st.write('**Результаты распознавания:**')
     print_predictions(preds)
